@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0%;
+            margin: 0%;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:palevioletred;
+            
+        }
+
+        table{
+            border: 2px solid palevioletred;
+            width: 300px;
+            height: 500px;
+            border-radius: 30px;
+            box-shadow: inset 5px 5px 14px #ffffff,
+                       5px 5px 12px rgba(0,0,0,16);
+            
+
+            
+        }
+        thead{
+            width:300px;
+            height: 150px;
+            /* border: 2px solid red; */
+        }
+        td{
+            /* border: 3px solid yellowgreen; */
+            text-align: center;
+            
+        }
+
+        td input{
+            border: 2px solid palevioletred;
+            background-color: palevioletred;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-weight: bold;
+            color: black;
+            box-shadow: inset 5px 5px 14px #ffffff,
+                       5px 5px 12px rgba(0,0,0,.10);
+
+        }
+        .a1{
+            width: 270px;
+            height: 80px;
+            border-radius: 30px;
+            border: 2px solid palevioletred;
+            background-color: palevioletred;
+            box-shadow:5px 5px 14px #ffffff,
+                      inset 5px 5px 12px rgba(0,0,0,.16);
+        }
+
+        .a2{
+            width: 105px;
+            border-radius: 20px;
+        }
+        th input{
+            padding: 20px;
+            font-size: 20px;
+        }
+     
+
+    </style>
+</head>
+<body>
+    <section>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="4"><input type="text" value="" class="a1" id="equation"></th>
+                </tr>
+            </thead>
+
+
+            <tbody>
+                <tr>
+                    <td><input type="button" value="AC" class="ac"></td>
+                    <td><input type="button" value="C" class="c"></td>
+                    <td><input type="button" class="in" value="%"></td>
+                    <td><input type="button" class="in" value="/"></td>
+                </tr>
+
+                <tr>
+                    <td> <input type="button" class="in" value="7"></td>
+                    <td> <input type="button" class="in" value="8"></td>
+                    <td> <input type="button" class="in" value="9"></td>
+                    <td> <input type="button" class="in" value="*"></td>
+                </tr>
+    
+                <tr>
+                    <td> <input type="button" class="in" value="4"></td>
+                    <td> <input type="button" class="in" value="5"></td>
+                    <td> <input type="button" class="in" value="6"></td>
+                    <td> <input type="button" class="in" value="-"></td>
+                </tr>
+    
+                <tr>
+                    <td> <input type="button" class="in" value="1"></td>
+                    <td> <input type="button" class="in" value="2"></td>
+                    <td> <input type="button" class="in" value="3"></td>
+                    <td> <input type="button" class="in" value="+"></td>
+                </tr>
+    
+                <tr>
+                    <td ><input type="button" class="in" value="0" ></td>
+                    <td> <input type="button" class="in" value="."></td>
+                    <td colspan="2"> <input type="button" value="=" class="a2" id="output"></td>
+                </tr>
+            </tbody>
+        </table>
+       
+    </section>
+
+
+
+
+
+    <script>
+
+        let input = document.querySelectorAll("input.in");
+        console.log(input.length);
+
+        let equation = document.getElementById("equation");
+        let ac = document.getElementsByClassName("ac");
+        let c = document.getElementsByClassName("c");
+        let output = document.getElementById("output");
+        
+
+        input.forEach(x =>{
+            console.log(input);
+
+            x.addEventListener("click",()=>{
+                equation.value += x.value
+            })
+        });
+
+
+
+
+        ac[0].addEventListener("click",()=>{
+            equation.value= ""
+        });
+
+
+
+
+
+        c[0].addEventListener("click",()=>{
+            equation.value =equation.value.slice(0,equation.value.length -1)
+        });
+
+
+
+
+        output.addEventListener("click",()=>{
+            equation.value = eval(equation.value);
+        })
+
+
+
+    </script>
+</body>
+</html>
